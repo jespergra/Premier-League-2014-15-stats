@@ -18,7 +18,7 @@ var teamsSerie = [];
         window.mainContainer.innerHTML = "";
         window.mainContainer.appendChild(list);
         // Open and read JSON-file with season data
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
@@ -55,7 +55,7 @@ var teamsSerie = [];
     }
 
     function drawTable() {
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
@@ -112,7 +112,7 @@ var teamsSerie = [];
 
     function showTop3() {
         var teams2 = [];
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
@@ -160,7 +160,7 @@ var teamsSerie = [];
     }
 
     function teamWinOrTied(team) {
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
@@ -198,7 +198,7 @@ var teamsSerie = [];
     }
 
     function teamWin2OrMore(team) {
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
@@ -235,7 +235,7 @@ var teamsSerie = [];
     }
     function drawEndSerie() {
         teams = [];
-        fetch("../../material/pl/pl-1415.json").then(function (response) {
+        fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
             // Console.log for checking that we got all data from JSON-file
