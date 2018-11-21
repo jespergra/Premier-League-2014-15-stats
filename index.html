@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kmom02</title>
+<meta charset="UTF-8">
+<!-- Font Awesome -->
+<style>
+    .balls {
+        font-size: 8px;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .m1 {
+        margin-right: 20px;
+    }
+table {
+
+    margin:0 20px 0 0;
+    border: 1px #000 solid;
+    border-radius: 5px;
+}
+
+td,tr, table {
+    padding: 0.1rem;
+    text-align: left;
+}
+
+.box {
+    max-width: 300px;
+    float: left;
+    margin: 0 20px 20px 0;
+}
+</style>
+</head>
+
+<body>
+    <div class="box">
+        <p>
+            <span id="totalMatches" class="left m1"></span>
+            <span id="totalGoals" class="left"></span>
+        </p>
+        <br style="clear:both;">
+        <p id="arithmeticMean"></p>
+        <p id="standardDeviation"></p>
+    </div>
+    <div class="box">
+        <table id="table2">
+            <h4>De lag med minst insläppta mål</h4>
+            <th>Lagman</th>
+            <th>Antal insläppta mål</th>
+        </table>
+    </div>
+    <div class="box">
+        <p id="teamWinOrTied"></p>
+        <p id="procentScore2OrMore"></p>
+    </div>
+
+    <table id="table" class="left">
+        <tr><th>Tabell för lag och dess antal mål</th></tr>
+        <tr><th>Lagman</th>
+        <th>Antal mål</th>
+        <th>Antal målbollar</th>
+    </table>
+    <table id="table3" class="left">
+        <tr><th>Serietabell vid säsongens slut</th></tr>
+        <th>Lagnamn</th>
+        <th>Poäng</th>
+    </table>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
