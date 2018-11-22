@@ -1,6 +1,3 @@
-var teamsSorted = [];
-var teams = [];
-var teamsSerie = [];
 (function(){
 
     function showStats() {
@@ -36,6 +33,10 @@ var teamsSerie = [];
             var totalMatches = document.getElementById("totalMatches");
             var arithmeticMean = document.getElementById("arithmeticMean");
             var standardDeviation = document.getElementById("standardDeviation")
+            var avgBackGoals = document.getElementById("avgBackGoals");
+            var avgBackGoalsMean = goals / 20;
+            var avgBackGoalsMeanRounded = Math.round(avgBackGoalsMean * 100) / 100;
+            avgBackGoals.textContent = "Genomsnitt insläppta mål: " + avgBackGoalsMeanRounded;
             totalMatches.textContent = "Antal matcher: " + matches;
             totalGoals.textContent = "Antal mål: " + goals;
 
@@ -55,6 +56,8 @@ var teamsSerie = [];
     }
 
     function drawTable() {
+        var teams = [];
+        var teamsSorted = [];
         fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
@@ -144,8 +147,6 @@ var teamsSerie = [];
             teamsSorted2.sort(function (a, b) {
               return a[1] - b[1];
             });
-
-            //console.log(teamsSorted);
             var table = document.getElementById("table2");
             var count = 0;
             for (var i = 0; i < 3; i++) {
@@ -155,7 +156,7 @@ var teamsSerie = [];
                 cell1.innerHTML = teamsSorted2[i][0];
                 cell2.innerHTML = teamsSorted2[i][1];
                 count++;
-            };
+            }
         });
     }
 
@@ -197,7 +198,7 @@ var teamsSerie = [];
         });
     }
 
-    function teamWin2OrMore(team) {
+    function teamScore2OrMore(team) {
         fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
@@ -234,7 +235,8 @@ var teamsSerie = [];
         });
     }
     function drawEndSerie() {
-        teams = [];
+        var teams = [];
+        var teamsSorted = [];
         fetch("json/pl-1415.json").then(function (response) {
             return response.json();
         }).then(function(data) {
@@ -299,10 +301,48 @@ var teamsSerie = [];
         });
     }
 
+    // function getAvgBackGoals() {
+    //     var teams = [];
+    //     var backGoals = 0;
+    //     fetch("json/pl-1415.json").then(function (response) {
+    //         return response.json();
+    //     }).then(function(data) {
+    //         // Console.log for checking that we got all data from JSON-file
+    //         //console.log(data);
+    //         data.rounds.forEach(function(round) {
+    //             round.matches.forEach(function(match) {
+    //                 var teamName = match["team1"]["name"];
+    //                 var teamName2 = match["team2"]["name"];
+    //
+    //                 if (teamName in teams) {
+    //                     teams[teamName] += match["score2"];
+    //                 } else {
+    //                     teams[teamName] = match["score2"];
+    //                 }
+    //
+    //                 if (teamName2 in teams) {
+    //                     teams[teamName2] += match["score1"];
+    //                 } else {
+    //                     teams[teamName2] = match["score1"];
+    //                 }
+    //             });
+    //         });
+    //
+    //         var backGoalsAvg = document.getElementById("backGoalsAvg");
+    //         var sumBackGoals = 0;
+    //         teams.forEach(function(team) {
+    //             sumBackGoals += team.v;
+    //         });
+    //         console.log("backGoals:");
+    //         console.log(sumBackGoals);
+    //     });
+    //
+    // }
+
     showStats();
     showTop3();
     drawTable();
     teamWinOrTied("Liverpool");
-    teamWin2OrMore("Liverpool");
+    teamScore2OrMore("Liverpool");
     drawEndSerie();
 })();
